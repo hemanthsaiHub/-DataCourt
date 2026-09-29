@@ -1,0 +1,10 @@
+tests
+ml
+data
+scripts
+.github
+requirements-full.txt
+Dockerfile
+docker-compose.yml
+*.md
+requirements-full.txt

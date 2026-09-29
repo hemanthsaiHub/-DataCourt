@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DataCourt - put your next business decision on trial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">⚖️ DataCourt</div>
+    <p class="tagline">Put your next business decision on trial. Two AI counsels argue from your data; every number they say is checked before a judge rules.</p>
+  </header>
+  <main class="shell">
+    <section class="panel setup" id="setup">
+      <h2>1. Load your data</h2>
+      <div class="row">
+        <label class="btn primary" for="fileInput">Upload CSV or Excel</label>
+        <input id="fileInput" type="file" accept=".csv,.xlsx,.xls,.tsv" hidden>
+        <button class="btn ghost" id="sampleBtn" type="button">Use sample business data</button>
+        <span id="srcName" class="src-name">No dataset loaded</span>
+      </div>
+
+      <div id="formArea" hidden>
+        <h2>2. State the decision to try</h2>
+        <textarea id="decision" rows="2" placeholder="e.g. Should we exit the Furniture category in the West region?"></textarea>
+        <div class="chips" id="chips"></div>
+
+        <h2>3. Point to the evidence</h2>
+        <div class="controls">
+          <label>Date column<select id="dateCol"></select></label>
+          <label>Metric to judge by<select id="metricCol"></select></label>
+          <label>Compare by (optional)<select id="dims" multiple></select></label>
+          <label>Period length (days, optional)<input id="periodDays" type="number" min="7" placeholder="auto"></label>
+        </div>
+        <button class="btn primary big" id="goBtn" type="button">Convene the hearing</button>
+      </div>
+      <p class="llm-status" id="llmStatus"></p>
+    </section>
+
+    <section id="out"></section>
+  </main>
+</body>
+</html>
